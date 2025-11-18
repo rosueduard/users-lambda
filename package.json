@@ -1,18 +1,16 @@
 {
   "name": "users-lambda",
   "version": "1.0.0",
+   "type": "module",
   "scripts": {
-    "clean": "rm -rf dist deploy lambda.zip",
-    "build": "tsc",
-    "copy": "mkdir -p deploy && cp -r package.json node_modules dist/* deploy/",
-    "zip": "cd deploy && zip -r ../lambda.zip .",
-    "deploy:zip": "npm run clean && npm run build && npm run copy && npm run zip"
+    "build:zip": "rm -rf dist && tsc && cd dist && cp ../package.json ./ && npm install --production && zip -r ../users-lambda.zip * && cd .."
   },
   "dependencies": {
-    "@aws-sdk/client-dynamodb": "^3.500.0",
-    "uuid": "^9.0.0"
+    "@aws-sdk/client-dynamodb": "^3.920.0",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@types/uuid": "^10.0.0",
     "typescript": "^5.1.6"
   }
 }
