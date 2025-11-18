@@ -1,6 +1,7 @@
-import { PutItemCommand } from "@aws-sdk/client-dynamodb";
+import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb";
 import { v4 as uuidv4 } from "uuid";
-import { ddbClient } from "../db/ client";
+
+const ddbClient = new DynamoDBClient({ region: "eu-north-1" });
 
 export const createUser = async (event: any) => {
   try {

@@ -1,5 +1,6 @@
-import { ScanCommand } from "@aws-sdk/client-dynamodb";
-import { ddbClient } from "../db/ client";
+import { DynamoDBClient, ScanCommand } from "@aws-sdk/client-dynamodb";
+
+const ddbClient = new DynamoDBClient({ region: "eu-north-1" });
 
 export const getUsers = async (event: any) => {
   try {
