@@ -14,7 +14,7 @@ export const createUser = async (event: any) => {
     };
 
     await ddbClient.send(
-      new PutItemCommand({ TableName: "users", Item: item })
+      new PutItemCommand({ TableName: "users", Item: item }),
     );
 
     return {
@@ -22,7 +22,12 @@ export const createUser = async (event: any) => {
       headers: {
         "Access-Control-Allow-Origin": "*",
       },
-      body: JSON.stringify({ message: "Item added", item }),
+      
+      body: JSON.stringify({
+        firstName: body.firstName,
+        lastName: body.lastName,
+        email: body.email,
+      }),
     };
   } catch (err) {
     console.error(err);

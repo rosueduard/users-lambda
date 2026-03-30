@@ -6,7 +6,7 @@ async function createUser() {
     requestContext: {
       http: { method: "POST" },
     },
-    body: JSON.stringify({ firstName: "Jhon", lastName: "Doe", email: "jhon.doe@example.com" }),
+    body: JSON.stringify({ firstName: "Jhon xx", lastName: "Doe 21", email: "jhon.doe@example.com" }),
   };
 
   console.log("----- POST Test -----");
